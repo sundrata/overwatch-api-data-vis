@@ -12,11 +12,11 @@ class Search extends Component {
 
     handleHero = (event) => {
         this.setState({
-          hero : event.target.value }, this.dispatchHero);
+          hero : event.target.value });
         console.log('state set');
       }
 
-    dispatchHero () {
+    dispatchHero = () => {
         this.props.dispatch({
             type: 'GET_HERO',
             payload: this.state.hero
@@ -37,17 +37,15 @@ class Search extends Component {
         return (
             <div className="body">
                 <center>
-                    <div className="bodyInfo">
-                        <h1>Welcome To Sundrata's Overwatch Hero GUI!</h1>
-                        <h3>Select a hero below to view additional information!</h3>
-                    </div>
-                    {/* <button onClick={() => this.fetchAna()}></button> */}
                     <hr></hr>
+                    <p>Select a hero from the dropdown or click on their respective image below to view detailed stats!</p>
                     <select value={this.state.hero} onChange={this.handleHero}>Select Hero
                     <option value={1}>Ana</option>
                     <option value={2}>Bastion</option>
                     <option value={3}>D.Va</option>
-                    </select><br></br>
+                    </select>
+                    <button onClick={this.dispatchHero}>View Information</button>
+                    <br></br>
                     {/* <img src={list} /> */}
                 </center>
             </div>
