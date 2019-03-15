@@ -6,6 +6,13 @@ const list = require('./list.jpg')
 
 class Search extends Component {
 
+  componentDidMount(){
+    this.props.dispatch({
+      type: 'GET_HEROS'
+    });
+    console.log('dispatched')
+  }
+
     state = {
         hero: 0
     }
@@ -24,21 +31,11 @@ class Search extends Component {
           console.log('dispatched')
     }
 
-//         fetchAna = (event) => {
-//         request({url: `https://overwatch-api.net/api/v1/hero/1}`, json: true}, function(err, res, json) {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log(json);
-// });
-//     }
-
     render() {
         return (
-            <div className="body">
                 <center>
-                    <hr></hr>
                     <p>Select a hero from the dropdown or click on their respective image below to view detailed stats!</p>
+                    <hr></hr>
                     <select value={this.state.hero} onChange={this.handleHero}>Select Hero
                     <option value={1}>Ana</option>
                     <option value={2}>Bastion</option>
@@ -46,9 +43,8 @@ class Search extends Component {
                     </select>
                     <button onClick={this.dispatchHero}>View Information</button>
                     <br></br>
-                    {/* <img src={list} /> */}
-                </center>
-            </div>
+                    {/* {JSON.stringify([this.props.reduxStore.hero])} */}
+                    </center>
         );
     }
 }

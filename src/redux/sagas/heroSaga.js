@@ -11,6 +11,16 @@ function* getHero(action) {
         console.log('error in get hero:', error);
     }
 };
+function* getHeros() {
+    try {
+        const response = yield axios.get(`https://overwatch-api.net/api/v1/hero`);  // get sheet music
+        console.log(`get heros`, response.data);
+        yield dispatch({ type: 'SET_HERO', payload: response.data });
+    } catch (error) {
+        console.log('error in get heros:', error);
+    }
+};
+
 
 // function* searchMusic(action) {
 //     try {
@@ -51,6 +61,8 @@ function* getHero(action) {
 
 function* heroWatcher() {
     yield takeLatest('GET_HERO', getHero);
+    yield takeLatest('GET_HEROS', getHeros);
+
     // yield takeLatest('DELETE_SHEET_MUSIC', deleteMusic);
     // yield takeLatest('SEARCH_SHEET_MUSIC', searchMusic)
     // yield takeEvery('EDIT_SHEET_MUSIC', editMusic)

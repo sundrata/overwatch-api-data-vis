@@ -12,11 +12,11 @@ class Body extends Component {
         //this is where all the imports are for DOM
       <>
       <div className="App">
-      <Header />
+      <div className="body">
       <Search />
-      <Select />
-      
-        <header className="App-header">
+      <Select /> 
+      </div>    
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <a
             className="App-link"
@@ -25,9 +25,8 @@ class Body extends Component {
             rel="noopener noreferrer"
           >
             Official Overwatch Site
-          </a>
-          
-        </header>
+          </a>         
+        </div>
       </div>
       </>
     );
