@@ -43,6 +43,11 @@
   background-color: #F99E1A;
 }
 
+#heroCards{
+  max-width: 50%;
+  margin: 10px;
+}
+
 #searchBar{
   background-color: rgb(207, 207, 207);
   width: 50%;
