@@ -6,7 +6,7 @@ function* getHero(action) {
     try {
         const response = yield axios.get(`https://overwatch-api.net/api/v1/hero/${action.payload}`);  // get sheet music
         console.log(`get hero`, response.data);
-        yield dispatch({ type: 'SET_HERO', payload: response.data });
+        // yield dispatch({ type: 'SET_HERO', payload: response.data });
     } catch (error) {
         console.log('error in get hero:', error);
     }
@@ -14,8 +14,8 @@ function* getHero(action) {
 function* getHeros() {
     try {
         const response = yield axios.get(`https://overwatch-api.net/api/v1/hero`);  // get sheet music
-        console.log(`get heros`, response.data);
-        yield dispatch({ type: 'SET_HERO', payload: response.data });
+        console.log(`get heros`, response.data.data);
+        yield dispatch({ type: 'SET_HERO', payload: response.data.data });
     } catch (error) {
         console.log('error in get heros:', error);
     }
