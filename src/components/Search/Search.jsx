@@ -6,6 +6,17 @@ import Button from '@material-ui/core/Button';
 
 import '../App/App.css';
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 150,
+    },
+  },
+};
+
 class Search extends Component {
 
   componentDidMount() {
@@ -34,12 +45,17 @@ class Search extends Component {
     console.log('dispatched')
   }
 
+  
   render() {
     return (
+      
       <center>
         <p>Select a hero from the dropdown or click on their respective image below to view detailed stats!</p>
-        <hr></hr>
+        <hr width="50%"></hr>
+        <div id="searchBar">
+        <p id="selectHero">Hero:</p>
         <Select
+        id="selector"
           value={this.state.hero}
           onChange={this.handleHero}
           label="Select Hero"
@@ -47,6 +63,8 @@ class Search extends Component {
             name: 'category',
             id: 'category-simple'
           }}
+          MenuProps={MenuProps}
+
         >
           {this.props.reduxStore.hero.map((hero) => (
             <MenuItem value={hero.id} key={hero.id}>
@@ -54,13 +72,10 @@ class Search extends Component {
             </MenuItem>
           ))}
         </Select>
-        {/* <select value={this.state.hero} onChange={this.handleHero}>Select Hero
-                    <option value={1}>Ana</option>
-                    <option value={2}>Bastion</option>
-                    <option value={3}>D.Va</option>
-                    </select> */}
-        <Button onClick={this.dispatchHero}>View Information</Button>
         <br></br>
+        <Button id="searchBtn" variant="contained" color="primary" onClick={this.dispatchHero}>View Information</Button>
+        <br></br>      
+        </div>
       </center>
     );
   }

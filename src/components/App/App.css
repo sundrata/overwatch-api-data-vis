@@ -43,6 +43,22 @@
   background-color: #F99E1A;
 }
 
+#searchBar{
+  background-color: rgb(207, 207, 207);
+  width: 50%;
+  border-radius: 1%;
+}
+
+#searchBtn{
+  margin: 5px;
+}
+
+#selectHero {
+  color: black;
+  font-size: 22px;
+  margin: 5px 15px 0px 0px;
+  display: inline;
+}
 
 .title {
   position: absolute;
