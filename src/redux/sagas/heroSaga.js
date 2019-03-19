@@ -2,6 +2,7 @@ import { put as dispatch, takeLatest, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 // import {call} from 'redux-saga/effects';
 
+//get specific hero user selected
 function* getHero(action) {
     try {
         const response = yield axios.get(`https://overwatch-api.net/api/v1/hero/${action.payload}`);  // get sheet music
@@ -11,6 +12,8 @@ function* getHero(action) {
         console.log('error in get hero:', error);
     }
 };
+
+//get all heros for dropdown selection
 function* getHeros() {
     try {
         const response = yield axios.get(`https://overwatch-api.net/api/v1/hero`);  // get sheet music
@@ -20,7 +23,6 @@ function* getHeros() {
         console.log('error in get heros:', error);
     }
 };
-
 
 // function* searchMusic(action) {
 //     try {
@@ -62,7 +64,6 @@ function* getHeros() {
 function* heroWatcher() {
     yield takeLatest('GET_HERO', getHero);
     yield takeLatest('GET_HEROS', getHeros);
-
     // yield takeLatest('DELETE_SHEET_MUSIC', deleteMusic);
     // yield takeLatest('SEARCH_SHEET_MUSIC', searchMusic)
     // yield takeEvery('EDIT_SHEET_MUSIC', editMusic)

@@ -45,6 +45,9 @@ class Search extends Component {
     console.log('dispatched')
   }
 
+  dispatch = () => {
+    this.dispatchHero();
+  }
   
   render() {
     return (
@@ -73,7 +76,7 @@ class Search extends Component {
           ))}
         </Select>
         <br></br>
-        <Button id="searchBtn" variant="contained" color="primary" onClick={this.dispatchHero}>View Information</Button>
+        <Button id="searchBtn" variant="contained" color="primary" onClick={this.dispatch}>View Information</Button>
         <br></br>      
         </div>
       </center>

@@ -31,8 +31,14 @@ const styles = {
   },
 };
 
+
+
 class Select extends Component {
   
+  handleClick = (hero) => {
+    console.log('hit with id:', hero.id)
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -40,7 +46,7 @@ class Select extends Component {
       <center>
       <div id="heroCards">
         {this.props.reduxStore.hero.map((hero) => (
-          <Card className={classes.card} value={hero.id} key={hero.id}>
+          <Card className={classes.card} value={hero.id} key={hero.id} onClick={() => this.handleClick(hero)}>
           <CardContent>
            <Typography>{hero.name}</Typography>
           </CardContent>

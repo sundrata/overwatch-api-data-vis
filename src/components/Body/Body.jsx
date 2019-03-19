@@ -11,6 +11,7 @@ class Body extends Component {
     return (
         //this is where all the imports are for DOM
       <>
+      <center>
       <div className="App">
       <div className="body">
       <Search />
@@ -28,6 +29,7 @@ class Body extends Component {
           </a>         
         </div>
       </div>
+      </center>
       </>
     );
   }
