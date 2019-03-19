@@ -36,7 +36,7 @@ const styles = {
 class Select extends Component {
   
   handleClick = (hero) => {
-    console.log('hit with id:', hero.id)
+    console.log('hit with hero id:', hero.id)
   }
 
   render() {
